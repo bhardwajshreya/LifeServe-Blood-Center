@@ -4,7 +4,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const FAQSection = () => {
   return (
-    <Box sx={{ bgcolor: '#e1ded7', py: 10 }}>
+    <Box sx={{ bgcolor: '#f7f7f7', py: 10 }}>
       <Container maxWidth="lg">
         <Typography variant="h4" align="center" gutterBottom>
           Frequently Asked Questions
