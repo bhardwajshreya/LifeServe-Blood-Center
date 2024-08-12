@@ -1,8 +1,24 @@
 
-import React from 'react';
+import React, {useRef} from 'react';
 import { AppBar, Toolbar, Box, Button, Typography, Container } from '@mui/material';
 import { Link } from 'react-router-dom';
+import Eligibility from './EligibilitySection';
+import Process from './ProcessSection';
+import FAQ from './FAQSection';
 const DonatePage = () => {
+  const processRef = useRef(null);
+  const eligibilityRef = useRef(null);
+  const faqRef = useRef(null);
+
+  const handleScrollToProcess = () => {
+    processRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+  const handleScrollToEligibility = () => {
+    eligibilityRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+  const handleScrollToFAQs = () => {
+    faqRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
   return (
     <>
     {/*Navbar */}
@@ -20,9 +36,33 @@ const DonatePage = () => {
           >
             About
           </Button>
-          <Button color="inherit" sx={{ color: 'white' }}>Eligibility</Button>
-          <Button color="inherit" sx={{ color: 'white' }}>Process</Button>
-          <Button color="inherit" sx={{ color: 'white' }}>FAQs</Button>
+          <Button 
+            color="inherit" 
+            sx={{ color: 'white' }} 
+            // component={Link} 
+            // to="/eligibilitySection" 
+            onClick={handleScrollToEligibility}
+          >
+            Eligilibility
+          </Button>
+          <Button 
+            color="inherit" 
+            sx={{ color: 'white' }} 
+            // component={Link} 
+            // to="/processSection" 
+            onClick={handleScrollToProcess}
+          >
+            Process
+          </Button>
+          <Button 
+            color="inherit" 
+            sx={{ color: 'white' }} 
+            // component={Link} 
+            // to="/FAQSection" 
+            onClick={handleScrollToFAQs}
+          >
+            FAQs
+          </Button>
 
         </Toolbar>
       </AppBar>
@@ -50,6 +90,18 @@ const DonatePage = () => {
         </Box>
       </Container>
       </Box>
+     {/* Sections */}
+     <div ref={eligibilityRef}>
+        <Eligibility />
+      </div>
+
+      <div ref={processRef}>
+        <Process />
+      </div>
+
+      <div ref={faqRef}>
+        <FAQ />
+      </div>
     </>
   );
 };
